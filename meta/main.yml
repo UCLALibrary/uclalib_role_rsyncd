@@ -3,9 +3,11 @@
 dependencies: []
 
 galaxy_info:
-  author: your name
-  description:
+  author: John H. Robinson, IV <jhriv@ucla.edu>
+  description: Enable rsyncd
   company: UCLA Library
+  namespace: uclalibrary
+  role: uclalib_role_rsyncd
   license: reference LICENSE file
   min_ansible_version: 2.4
   platforms:

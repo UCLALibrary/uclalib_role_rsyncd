@@ -1,0 +1,20 @@
+---
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  vars:
+    # See vars: in converge.yml
+    expected_output: "one            \t\ntwo            \tSecond"
+  tasks:
+  - name: Get module list
+    command:
+      cmd: 'rsync localhost::'
+    changed_when: false
+    register: module_list
+
+  # this assertion verifies rsyncd is running, and the modules are
+  # configured
+  - name: Verify module list
+    assert:
+      that: module_list.stdout == expected_output

@@ -1,0 +1,19 @@
+# {{ ansible_managed }}
+
+{% if globals is defined %}
+# GLOBALS
+
+{% for key in globals.keys()|sort %}
+{{ key }} = {{ globals[key] }}
+{% endfor %}
+
+{% endif %}
+# MODULES
+
+{% for module in modules|sort %}
+[{{ module }}]
+{% for key in modules[module].keys()|sort %}
+  {{ key }} = {{ modules[module][key] }}
+{% endfor %}
+
+{% endfor %}
