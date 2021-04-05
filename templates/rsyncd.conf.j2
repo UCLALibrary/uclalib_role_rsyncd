@@ -10,10 +10,10 @@
 {% endif %}
 # MODULES
 
-{% for module in rsync_modules|sort %}
-[{{ module }}]
-{% for key in rsync_modules[module].keys()|sort %}
-  {{ key }} = {{ rsync_modules[module][key] }}
+{% for module in rsync_modules %}
+[{{ module.name }}]
+{% for key in module|sort if key != "name" %}
+  {{ key }} = {{ module[key] }}
 {% endfor %}
 
 {% endfor %}
