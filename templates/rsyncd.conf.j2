@@ -1,19 +1,19 @@
 # {{ ansible_managed }}
 
-{% if globals is defined %}
+{% if rsync_globals is defined %}
 # GLOBALS
 
-{% for key in globals.keys()|sort %}
-{{ key }} = {{ globals[key] }}
+{% for key in rsync_globals.keys()|sort %}
+{{ key }} = {{ rsync_globals[key] }}
 {% endfor %}
 
 {% endif %}
 # MODULES
 
-{% for module in modules|sort %}
+{% for module in rsync_modules|sort %}
 [{{ module }}]
-{% for key in modules[module].keys()|sort %}
-  {{ key }} = {{ modules[module][key] }}
+{% for key in rsync_modules[module].keys()|sort %}
+  {{ key }} = {{ rsync_modules[module][key] }}
 {% endfor %}
 
 {% endfor %}

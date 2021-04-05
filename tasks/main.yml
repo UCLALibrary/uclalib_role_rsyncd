@@ -12,7 +12,7 @@
     mode: '0444'
     owner: root
     group: root
-  when: modules is defined
+  when: rsync_modules is defined
 
 - name: Enable rsyncd
   service:

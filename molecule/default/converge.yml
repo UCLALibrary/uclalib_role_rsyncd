@@ -8,7 +8,9 @@
 
   vars:
     # referenced by assert: in verify.yml
-    modules:
+    rsync_globals:
+      comment: Default Comment
+    rsync_modules:
       one:
         path: /tmp
       two:

@@ -5,10 +5,11 @@
   gather_facts: false
   vars:
     # See vars: in converge.yml
-    expected_output: "one            \t\ntwo            \tSecond"
+    expected_output: "one            \tDefault Comment\ntwo            \tSecond"
   tasks:
   - name: Get module list
     command:
+      # noqa command-instead-of-module
       cmd: 'rsync localhost::'
     changed_when: false
     register: module_list
